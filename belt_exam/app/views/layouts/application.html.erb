@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BeltExam</title>
+  <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="margin: 0px 0px 0px 0px; padding:0px 0px 0px 0px; max-width:100%;">
+<% if current_user %>
+    <form action="/sessions/<%=current_user.id%>" method="post" style=" display:inline-block; text-align:right; padding: 100px 150px 0px 0px">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Log Out">
+    </form>
+  <% end %> 
+
+<%= yield %>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <p style="text-align:center; color:red;"><%= e %></p>
+    <% end %>
+  <% end %>
+
+</body>
+</html>

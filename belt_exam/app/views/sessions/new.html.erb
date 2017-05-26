@@ -1,0 +1,33 @@
+<h1 style="text-align:center;">Welcome to the Playlist</h1>
+<div style="align:center">
+<div id="Signup" style="display: inline-block; margin-left: 530px; text-align:center;">
+<h3>Sign Up</h3>
+  <form action="/sessions/register" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>First Name </label>
+    <input type="text" name="user[first_name]" placeholder="John">
+    <label>Last Name</label>
+    <input type="text" name="user[last_name]" placeholder="Doe">
+    <label>Email</label>
+    <input type="text" name="user[email]" placeholder="John@doe.com">
+    <label>Password</label>
+    <input type="password" name="user[password]" placeholder="Secret Password">
+    <label>Confirm Password</label>
+    <input type="password" name="user[password_confirmation]" placeholder="Confirm Secret Password"><br>
+    <button type="Login">Register</button>
+  </form>
+</div>
+<div id="Login" style="display: inline-block;vertical-align:top; margin:0px 0px 0px 100px; text-align:center;">
+<h3>Log in</h3>
+<form  action="/sessions" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>Email</label>
+  <input type="text" name="user[email]">
+  <label>Password</label>
+  <input type="password" name="user[password]"><br>
+  <button type="Login">Log In</button>
+</form>
+</div>
+
+
+</div>

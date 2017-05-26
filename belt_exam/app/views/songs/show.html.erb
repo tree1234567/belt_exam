@@ -1,0 +1,24 @@
+<h3 style="display:inline-block"><a href="/">Dashboard</a></h3>
+
+
+<h1>Others who added <%= @song.artist%> -- <%= @song.title%> </h1>
+
+
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Times Added</th>
+</tr>
+    <% if @all_users %>
+    <% @all_users.each do |user|%>
+    <tr>
+        <td><a href="/users/<%= user.id %>"><%= user.first_name %></a></td>
+        <td><%= user.liked_songs.where("song_id = ?", @song.id).count %>
+    </tr>
+    <% end %>
+    <%end %>
+
+
+
+</table>
